@@ -56,7 +56,7 @@ Missing.innerHTML="Not Available";
      }
      var card=document.createElement("div");
      card.setAttribute("class","card mb-3 p-2 text-justify");
-     card.setAttribute("style","border:5px solid beige");
+     card.setAttribute("style","border:2px solid grey");
      
      var title_div = document.createElement("div");
     title_div.setAttribute("class","text-primary h4");
@@ -64,7 +64,7 @@ Missing.innerHTML="Not Available";
      title_div.innerHTML=item.volumeInfo.title;
 
      var author_div = document.createElement("div");
-     author_div.setAttribute("style","height:1rem");
+     author_div.setAttribute("style","height:2rem;overflow:auto");
      author_div.innerHTML=item.volumeInfo.authors;
 
      var desc_div = document.createElement("div");
