@@ -59,16 +59,13 @@ Missing.innerHTML="Not Available";
      card.setAttribute("style","border:2px solid grey");
      
      var title_div = document.createElement("div");
-    title_div.setAttribute("class","text-primary h4");
-    title_div.setAttribute("style","height:2rem;overflow:auto;");
+     title_div.setAttribute("class","text-primary h4");
      title_div.innerHTML=item.volumeInfo.title;
 
      var author_div = document.createElement("div");
-     author_div.setAttribute("style","height:2rem;overflow:auto");
      author_div.innerHTML=item.volumeInfo.authors;
 
      var desc_div = document.createElement("div");
-     desc_div.setAttribute("style","height:4rem;overflow:auto");
      desc_div.innerHTML=item.volumeInfo.description;
      card.innerHTML = "<br>"+ title_div.outerHTML+ "<hr>"+Author_head.outerHTML+author_div.outerHTML+ "<br>"+Description_head.outerHTML+desc_div.outerHTML+"<br>";
     
