@@ -8,16 +8,19 @@ document.getElementById("search_text").addEventListener("keypress", function(eve
   }
 });
 
-var Title_head=document.createElement("h5");
+var Title_head=document.createElement("h3");
 Title_head.setAttribute("class","text-primary");
 Title_head.innerHTML="Title";
 
+var break_line=document.createElement("br");
 
-var Author_head=document.createElement("h6");
+
+
+var Author_head=document.createElement("h4");
 Author_head.setAttribute("class","text-success");
 Author_head.innerHTML="Authors";
 
-var Description_head=document.createElement("h6");
+var Description_head=document.createElement("h4");
 Description_head.setAttribute("class","text-success");
 Description_head.innerHTML="Description ";
 
@@ -51,12 +54,33 @@ Missing.innerHTML="Not Available";
      {
       item.volumeInfo.description=Missing.outerHTML;
      }
+     var card=document.createElement("div");
+     card.setAttribute("class","card mb-3 p-2 text-justify");
+     card.setAttribute("style","border:5px solid beige");
      
-      document.getElementById("content").innerHTML += "<br>"+Title_head.outerHTML + item.volumeInfo.title+ "<br>"+Author_head.outerHTML+item.volumeInfo.authors+ "<br>"+Description_head.outerHTML+item.volumeInfo.description+"<br>";
+     var title_div = document.createElement("div");
+    title_div.setAttribute("class","text-primary h4");
+    title_div.setAttribute("style","height:2rem;overflow:auto;");
+     title_div.innerHTML=item.volumeInfo.title;
+
+     var author_div = document.createElement("div");
+     author_div.setAttribute("style","height:1rem");
+     author_div.innerHTML=item.volumeInfo.authors;
+
+     var desc_div = document.createElement("div");
+     desc_div.setAttribute("style","height:4rem;overflow:auto");
+     desc_div.innerHTML=item.volumeInfo.description;
+     card.innerHTML = "<br>"+ title_div.outerHTML+ "<hr>"+Author_head.outerHTML+author_div.outerHTML+ "<br>"+Description_head.outerHTML+desc_div.outerHTML+"<br>";
+    
+     document.getElementById("content").append(card);
+
     }
   }
   catch{
-    document.getElementById("content").innerHTML = "No records found";
+    var error_me=document.createElement("div");
+    error_me.setAttribute("class","text-danger h2");
+    error_me.innerHTML="Oooops..No Records Found!!!";
+    document.getElementById("content").innerHTML = error_me.outerHTML;
   }
   
 }
